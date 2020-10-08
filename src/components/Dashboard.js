@@ -15,23 +15,23 @@ const data = [
   {
     id: 1,
     label: "Total Interviews",
-    getValue: getTotalInterviews
+    getValue: getTotalInterviews,
   },
   {
     id: 2,
     label: "Least Popular Time Slot",
-    getValue: getLeastPopularTimeSlot
+    getValue: getLeastPopularTimeSlot,
   },
   {
     id: 3,
     label: "Most Popular Day",
-    getValue: getMostPopularDay
+    getValue: getMostPopularDay,
   },
   {
     id: 4,
     label: "Interviews Per Day",
-    getValue: getInterviewsPerDay
-  }
+    getValue: getInterviewsPerDay,
+  },
 ];
 
 class Dashboard extends Component {
@@ -102,12 +102,9 @@ class Dashboard extends Component {
       .map((panel) => (
         <Panel
           key={panel.id}
-          id={panel.id}
           label={panel.label}
-          value={panel.value}
-          onSelect={(event) => this.selectPanel(panel.id)}
-          // onSelect={this.selectPanel}
-          // onSelect={this.selectPanel(panel.id)}
+          value={panel.getValue(this.state)}
+          onSelect={() => this.selectPanel(panel.id)}
         />
       ));
 
